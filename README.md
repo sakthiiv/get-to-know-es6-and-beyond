@@ -17,15 +17,19 @@ This repository is a self reference readme guide to ES6.
 + A promise can only have one of the two resolutions (resolved),  
   + **fulfilled** - Final value called fulfillment
   + **rejected** - Final valued called reason (reason for rejected)
+  + **pending** - Hasn't fulfilled or rejected yet
+  + **settled** - Has fulfilled or rejected
 + Promises can only be resolved once. Any further attempts will be ignored (value is immutable).
++ If a promise has been fulfilled or rejected and a success/failure callback is added later, the correct callback will be called, even though the async operation completed earlier.
 + Testing promises are easier, because we can use `setTimeout()` as an async task.
 + Its provides the following improvement over callbacks-only async, namely predictability, order and trustability.
+
 
 ```javascript
 // Use Promise(..) constructor to construct a promise function
 // The Promise(..) constructor should only be used for legacy async tasks (setTimeout / XMLHttpRequest)
 
-var promise = new Promise(function (resolve, reject) {
+var promise = new Promise((resolve, reject) => {
 
   if (isKakarot) {
     resolve(true); // Success
@@ -40,6 +44,8 @@ promise
 .catch(msg => { /* failure */ });
 
 ```
+
++ If we call resolve(..) and pass in another promise, current promise simply adopts the state (immediate/eventual) of the passed promise (fulfilled/rejected).
 
 ## Async & Await
 
