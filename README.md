@@ -43,6 +43,14 @@ promise
 .then(isSaiyanGod => { /* success */ })
 .catch(msg => { /* failure */ });
 
+// then(..) also takes two arguments, a success callback and a failure callback
+
+promise.then((result) => {
+  console.log(result); // "Alternate timeline is at peace!"
+}, (err) => {
+  console.log(err); // Error: "Black Goku must be destroyed!"
+});
+
 ```
 
 + If we call resolve(..) and pass in another promise, current promise simply adopts the state (immediate/eventual) of the passed promise (fulfilled/rejected).
