@@ -1,0 +1,22 @@
+{
+  "name": "get-to-know-es6-and-beyond",
+  "version": "1.0.0",
+  "description": "This repository is a self reference readme guide to ES6.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakthiiv/get-to-know-es6-and-beyond.git"
+  },
+  "author": "Sakthivel Viswanatha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakthiiv/get-to-know-es6-and-beyond/issues"
+  },
+  "homepage": "https://github.com/sakthiiv/get-to-know-es6-and-beyond#readme",
+  "dependencies": {
+    "node-fetch": "^1.6.3"
+  }
+}
