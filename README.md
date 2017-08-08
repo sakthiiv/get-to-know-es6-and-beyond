@@ -243,14 +243,18 @@ for (let called of CallKakarot()) {
 // Use Promise(..) constructor to construct a promise function
 // The Promise(..) constructor should only be used for legacy async tasks (setTimeout / XMLHttpRequest)
 
-var promise = new Promise((resolve, reject) => {
-
-  if (isKakarot) {
-    resolve(true); // Success
-  } else {
-    reject('Just a mortal!'); // Failure
+let promise = new Promise((resolve, reject) => {
+  let xmlHttp = new XMLHttpRequest();
+  xmlHttp.open('GET', 'http://<url>', true);
+  xmlHttp.send();
+  xmlHttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       resolve(this.responseText); // Success
+    }
+    if (this.status == 501) {
+       reject('Internal Server Error!'); // Failure 
+    }
   }
-
 });
 
 promise
